@@ -68,11 +68,11 @@ class TransactionController extends Controller
         $cart = session('cart');
 
         if(empty($cart)) {
-            return back()->with('empty', 'List belanja sudah kosong!');
+            return back()->with('empty', 'Daftar belanja sudah kosong!');
         }
 
         session()->forget('cart');
-        return back();
+        return back()->with('isEmpty', 'Daftar belanja telah dihapus!');
     }
 
     public function buyProduct($totalHarga)
@@ -93,6 +93,6 @@ class TransactionController extends Controller
 
         session()->forget('cart');
 
-        return redirect('/history');
+        return back()->with('success', 'Transaksi Berhasil!');;
     }
 }

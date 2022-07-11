@@ -32,11 +32,11 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($data_transaksi->transaction as $item)
-                                            {{-- @php
-                                             $data = Barang::where('id', $item->master_barang_id) ;  
-                                            @endphp --}}
+                                            @php
+                                                $data = \App\Models\Barang::where('id', $item->master_barang_id)->first();
+                                            @endphp
                                             <tr>
-                                                <td>{{ $item->master_barang_id }}</td>
+                                                <td>{{ $data->nama_barang }}</td>
                                                 <td>{{ $item->jumlah }}</td>
                                                 <td>Rp {{ number_format($item->harga_satuan, 2, ',', '.') }}</td>
                                                 <td>Rp

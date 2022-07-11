@@ -23,12 +23,4 @@ class HistoryTransactionController extends Controller
             'data_transaksi' => transaksi_pembelian::firstWhere('id', $id)
         ]);
     }
-
-    public function getDataBarang($id) {
-        return view('pages.transaction.detail', [
-            'title' => 'Detail History Transaction',
-            'active' => 'history',
-            'data_barang' => Barang::where('id', $id)
-        ]);
-    }
 }

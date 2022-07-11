@@ -19,7 +19,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $product->nama_barang }}</td>
-                            <td>Rp {{ $product->harga_satuan }}</td>
+                            <td>Rp {{ number_format($product->harga_satuan, 2, ',', '.') }}</td>
                         </tr>
                     @endforeach
                 </tbody>

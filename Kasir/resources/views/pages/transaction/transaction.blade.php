@@ -9,23 +9,43 @@
         </div>
 
         {{-- Alert --}}
-        @if (session()->has('failed'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('failed') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
+        <div>
+            @if (session()->has('failed'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('failed') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
 
-        @if (session()->has('empty'))
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                {{ session('empty') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
+            @if (session()->has('empty'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ session('empty') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
+            @if (session()->has('isEmpty'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('isEmpty') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
+            @if (session()->has('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
 
         <form action="/add" method="POST">
             @csrf
@@ -105,10 +125,10 @@
                             <tr>
                                 <td>{{ $val['nama_produk'] }}</td>
                                 {{-- <td></td> --}}
-                                <td>Rp. <?php echo number_format($val['harga_satuan'], 2, ',', '.'); ?></td>
+                                <td>Rp. {{ number_format($val['harga_satuan'], 2, ',', '.') }}</td>
                                 <td>{{ $val['jumlah'] }}</td>
                                 {{-- <td></td> --}}
-                                <td>Rp. <?php echo number_format($val['harga_satuan'] * $val['jumlah'], 2, ',', '.'); ?></td>
+                                <td>Rp. {{ number_format($val['harga_satuan'] * $val['jumlah'], 2, ',', '.') }}</td>
                                 <td class="text-center">
                                     <a href="/delete/{{ $val['id_produk'] }}"
                                         class="badge bg-danger text-white text-center"><i class="bi bi-x-circle"></i></a>
@@ -125,7 +145,7 @@
                 @if (empty($cart) || count($cart) == 0)
                     <h3>Total Harga : Rp. 0,00</h3>
                 @else
-                    <h3>Total Harga : Rp. <?php echo number_format($totalHarga, 2, ',', '.'); ?></h3>
+                    <h3>Total Harga : Rp. {{ number_format($totalHarga, 2, ',', '.') }}</h3>
                 @endif
                 <div>
                     <a href="/deleteAll" class="btn btn-danger">Hapus</a>

@@ -48,4 +48,3 @@ Route::get('/buy/{totalHarga}', [TransactionController::class, 'buyProduct']);
 // History Transaction
 Route::get('/history', [HistoryTransactionController::class, 'index'])->middleware('auth');
 Route::get('/detail/{id}', [HistoryTransactionController::class, 'detailTransaction']);
-Route::get('/data_barang/{$id}', [HistoryTransactionController::class, 'getDataBarang']);

@@ -15,4 +15,22 @@ class ProductController extends Controller
             'products' => Barang::all()
         ]);
     }
+
+    public function create_product() {
+        return view('pages.product.create', [
+            'title' => "Product",
+            'active' => 'product',
+        ]);
+    }
+
+    public function create(Request $request) {
+        $validatedData = $request->validate([
+            'nama_barang' => 'required',
+            'harga_satuan' => 'required|numeric'
+        ]);
+
+        Barang::create($validatedData);
+
+        return redirect('/product')->with('add_success', 'Produk berhasil ditambahkan!');
+    }
 }

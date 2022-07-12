@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryTransactionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
@@ -18,12 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.dashboard.index', [
-        'title' => "Dashboard",
-        'active' => 'dashboard'
-    ]);
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 // Login
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

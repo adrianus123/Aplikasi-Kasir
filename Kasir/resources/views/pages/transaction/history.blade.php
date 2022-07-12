@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('container')
-    <div class="container bg-white m-0 p-3 rounded">
+    <div class="container bg-white m-0 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h3 text-gray-800">Riwayat Transaksi</h1>
         </div>
@@ -27,7 +27,7 @@
                                 <td>{{ $d->created_at }}</td>
                                 <td>Rp. <?php echo number_format($d->total_harga, 2, ',', '.'); ?></td>
                                 <td class="text-center"><a href="/detail/{{ $d->id }}"
-                                        class="badge bg-success text-white">Lihat Detail</a></td>
+                                        class="badge bg-success text-white rounded-0">Lihat Detail</a></td>
                             </tr>
                         @endforeach
                     @endif

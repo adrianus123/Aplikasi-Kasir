@@ -3,7 +3,7 @@
 @section('container')
 
     {{-- Transaksi --}}
-    <div class="container bg-white m-0 p-3 rounded">
+    <div class="container bg-white m-0 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h3 text-gray-800">Transaksi</h1>
         </div>
@@ -51,10 +51,12 @@
             @csrf
             <div class="form-group">
                 <label for="">Pilih Kode Produk</label>
-                <select class="custom-select" id="produk" name="product_id">
+                <select class="custom-select selectpicker" data-live-search="true" id="produk" name="product_id">
+                {{-- <select class="selectpicker" data-live-search="true" id="produk" name="product_id"> --}}
                     <option value="">-- Pilih Kode Produk --</option>
                     @foreach ($products as $product)
-                        <option value="{{ $product->id }}">{{ $product->id }}</option>
+                        <option data-tokens="{{ $product->nama_barang }}" value="{{ $product->id }}">
+                            {{ $product->id }}</option>
                     @endforeach
                 </select>
             </div>
@@ -97,7 +99,7 @@
     </div>
 
     {{-- Produk yang dibeli --}}
-    <div class="container bg-white m-0 mt-3 p-3 rounded">
+    <div class="container bg-white m-0 mt-3 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h3 text-gray-800">Produk yang dibeli</h1>
         </div>
@@ -159,7 +161,17 @@
 @section('script')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+    {{-- For Search --}}
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+	{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> --}}
+	{{-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" /> --}}
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script> --}}
+	{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" /> --}}
+	{{-- <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"type="text/javascript"></script> --}}
+	{{-- <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"rel="stylesheet" type="text/css" /> --}}
+
     <script type="text/javascript">
+
         $(document).ready(function() {
             $(document).on('change', '#produk', function() {
                 var p_id = $(this).val();
@@ -184,5 +196,10 @@
                 });
             });
         });
+
+        // Search
+        // $(function() {
+        //     $('.selectpicker').selectpicker();
+        // });
     </script>
 @endsection

@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="harga_satuan" class="form-label">Harga Satuan</label>
-                    <input type="number" class="form-control @error('harga_satuan') is-invalid @enderror" id="harga_satuan" name="harga_satuan" value="{{ old('slug', $data->harga_satuan) }}" required>
+                    <input type="number" class="form-control @error('harga_satuan') is-invalid @enderror" id="harga_satuan" name="harga_satuan" value="{{ old('slug', (int)$data->harga_satuan) }}" required>
                     @error('harga_satuan')
                         <div class="invalid-feedback">
                             {{ $message }}

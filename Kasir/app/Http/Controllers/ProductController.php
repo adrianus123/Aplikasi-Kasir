@@ -53,14 +53,14 @@ class ProductController extends Controller
         ]);
     }
 
-    public function edit(Request $request, Barang $barang)
+    public function edit(Request $request, $id)
     {
         $validatedData = $request->validate([
             'nama_barang' => 'required',
             'harga_satuan' => 'required|numeric'
         ]);
 
-        Barang::where('id', $barang->id)->update($validatedData);
+        Barang::where('id', $id)->update($validatedData);
 
         return redirect('/product')->with('update_success', 'Data produk berhasil diperbarui!');
     }

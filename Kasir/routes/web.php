@@ -36,7 +36,7 @@ Route::get('/createProduct', [ProductController::class, 'create_product'])->midd
 Route::post('/create', [ProductController::class, 'create']);
 Route::get('/deleteProduct/{id}', [ProductController::class, 'delete_product'])->middleware('auth');
 Route::get('/editProduct/{id}', [ProductController::class, 'edit_product'])->middleware('auth');
-// Route::put('/edit/{id}', [ProductController::class, 'edit']);
+Route::put('/edit/{id}', [ProductController::class, 'edit']);
 
 // Transaction
 Route::get('/transaction', [TransactionController::class, 'index'])->middleware('auth');

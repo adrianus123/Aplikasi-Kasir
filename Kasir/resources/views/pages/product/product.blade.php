@@ -19,6 +19,26 @@
                     </div>
                 @endif
             </div>
+            <div>
+                @if (session()->has('delete_success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('delete_success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
+            <div>
+                @if (session()->has('update_success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('update_success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
 
             <a href="/createProduct" class="btn btn-success mb-3">Tambah Produk</a>
             <div class="table-responsive">
@@ -28,7 +48,7 @@
                             <th>No</th>
                             <th>Nama Produk</th>
                             <th>Harga</th>
-                            {{-- <th class="text-center">Aksi</th> --}}
+                            <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,10 +57,10 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $product->nama_barang }}</td>
                                 <td>Rp {{ number_format($product->harga_satuan, 2, ',', '.') }}</td>
-                                {{-- <td class="text-center">
-                                    <a href="#" class="badge bg-warning text-white rounded-0"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="#" class="badge bg-danger text-white rounded-0"><i class="bi bi-trash3-fill"></i></a>
-                                </td> --}}
+                                <td class="text-center">
+                                    <a href="/editProduct/{{ $product->id }}" class="badge bg-warning text-white rounded-0"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="/deleteProduct/{{ $product->id }}" class="badge bg-danger text-white rounded-0"><i class="bi bi-trash3-fill"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -60,7 +60,7 @@
                             <select class="selectpicker" data-live-search="true" id="produk" name="product_id">
                                 <option value="">-- Pilih Kode Produk --</option>
                                 @foreach ($products as $product)
-                                    <option data-tokens="{{ $product->nama_barang }}" value="{{ $product->id }}">
+                                    <option value="{{ $product->id }}">
                                         {{ $product->id }} - {{ $product->nama_barang }}</option>
                                 @endforeach
                             </select>

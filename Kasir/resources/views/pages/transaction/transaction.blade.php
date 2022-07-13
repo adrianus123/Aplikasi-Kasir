@@ -3,7 +3,7 @@
 @section('container')
 
     {{-- Transaksi --}}
-    <div class="container bg-white m-0 p-3 rounded shadow-sm">
+    <div class="bg-white m-0 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h3 text-gray-800">Transaksi</h1>
         </div>
@@ -53,7 +53,7 @@
                 <table class="w-75">
                     <tr>
                         <td>
-                            <label for="">Pilih Kode Produk</label>
+                            <label for="">Kode Produk</label>
                         </td>
                         <td>:</td>
                         <td>
@@ -115,9 +115,9 @@
     </div>
 
     {{-- Produk yang dibeli --}}
-    <div class="container bg-white m-0 mt-3 p-3 rounded shadow-sm">
+    <div class="bg-white m-0 mt-3 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-            <h1 class="h3 text-gray-800">Produk yang dibeli</h1>
+            <h1 class="h3 text-gray-800">Informasi Produk</h1>
         </div>
         <div class="table-responsive">
             @php
@@ -185,7 +185,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
 
     <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/i18n/defaults-*.min.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/i18n/defaults-*.min.js"></script> --}}
 
     <script type="text/javascript">
         $(document).ready(function() {

@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function create_product()
     {
         return view('pages.product.create', [
-            'title' => "Product",
+            'title' => "Create Product",
             'active' => 'product',
         ]);
     }
@@ -41,13 +41,13 @@ class ProductController extends Controller
     {
         Barang::where('id', $id)->delete();
 
-        return redirect('/prduct')->with('delete_success', 'Produk berhasil dihapus!');
+        return redirect('/product')->with('delete_success', 'Produk berhasil dihapus!');
     }
 
     public function edit_product($id)
     {
         return view('pages.product.edit', [
-            'title' => "Product",
+            'title' => "Edit Product",
             'active' => 'product',
             'data' => Barang::firstWhere('id', $id)
         ]);

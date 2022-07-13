@@ -30,6 +30,6 @@ class RegisterController extends Controller
         // Mengirim pesan saat registrasi berhasil 
         $request->session()->flash('success', 'Create account successfull! Please Login');
 
-        return redirect('/login');
+        return redirect('login');
     }
 }

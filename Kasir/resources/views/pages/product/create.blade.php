@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('container')
-    <div class="container bg-white m-0 p-3 rounded shadow-sm">
+    <div class="bg-white m-0 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h3 text-gray-800">Tambah Produk</h1>
         </div>
@@ -26,7 +26,8 @@
                         </div>
                     @enderror
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Tambah</button>
+                <button type="submit" name="submit" class="btn btn-warning">Tambah</button>
+                <a href="/product" class="btn btn-info">Kembali</a>
             </form>
         </div>
     </div>

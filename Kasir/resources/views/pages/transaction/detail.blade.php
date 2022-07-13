@@ -1,7 +1,7 @@
 @extends('main')
 
 @section('container')
-    <div class="container bg-white m-0 p-3 rounded shadow-sm">
+    <div class="bg-white m-0 p-3 rounded shadow-sm">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
             <h1 class="h3 text-gray-800">Detail Transaksi</h1>
         </div>
@@ -25,7 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th>Nama Produk</th>
-                                            <th>Jumlah</th>
+                                            <th class="text-center">Jumlah</th>
                                             <th>Harga Satuan</th>
                                             <th>Sub Total</th>
                                         </tr>
@@ -36,8 +36,13 @@
                                                 $data = \App\Models\Barang::where('id', $item->master_barang_id)->first();
                                             @endphp
                                             <tr>
-                                                <td>{{ $data->nama_barang }}</td>
-                                                <td>{{ $item->jumlah }}</td>
+                                                {{-- Mengecek ketersediaan barang pada list barang --}}
+                                                @if (empty($data))
+                                                    <td><span class="fst-italic">Null</span></td>
+                                                @else
+                                                    <td>{{ $data->nama_barang }}</td>
+                                                @endif
+                                                <td class="text-center">{{ $item->jumlah }}</td>
                                                 <td>Rp {{ number_format($item->harga_satuan, 2, ',', '.') }}</td>
                                                 <td>Rp
                                                     {{ number_format($item->harga_satuan * $item->jumlah, 2, ',', '.') }}
